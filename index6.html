@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>VUEjs v-if v-else template </title>
+		<!-- cdn de bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+
+<div id="main">
+	
+	<div class="container">
+		<div class="row">
+			<div class="col-md-5">
+				<h3 v-if="!mensaje">Escribe tu sujerencia</h3>
+				<h3 v-else>Hay un mensaje</h3>
+				<textarea v-model="mensaje" class="form-control"></textarea>
+			</div>
+
+
+			<div v-if="!mensaje" class="col-md-5">
+				<template>
+					<h3>La etiqueta template es la que tiene la condicion</h3>
+					<p>Es un bloque completo de html</p>
+					<p>que va a utilizar una unica condicion</p>
+					<p>¿cuando v-show y v-if? con v-if si inicialmente la condicion es falsa no se va a renderizar y la pagina cargara mas rapido</p>
+
+				</template>
+			</div>
+
+			<div class="col-md-7">
+				<h1>JSON</h1>
+				<pre>{{ $data }}</pre>
+			</div>
+
+		</div>
+	</div>
+
+
+</div>
+
+<!-- //directiva aquello que utilizamos para que las etiquetas hagan algo -->
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.1/vue.js"></script>
+<script type="text/javascript">
+	
+
+new Vue({
+	el:'#main',	//vinculamos al elemento
+	data: {
+		mensaje:''
+	}
+
+});
+
+
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>

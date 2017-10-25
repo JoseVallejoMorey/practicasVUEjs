@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>VUEjs V" V-BIND | </title>
+</head>
+<body>
+
+<div id="main">
+	
+	<ul>
+		<li v-for="item in people">{{ item }}</li>
+
+	</ul>
+	<input type="text" v-model="info">
+	<p v-bind:title="info">Texo de relleno {{ info }}</p>
+
+
+</div>
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.1/vue.js"></script>
+<script type="text/javascript">
+	
+
+new Vue({
+	el:'#main',	//vinculamos al elemento
+	data: {
+		info:''
+	}
+
+});
+
+
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>

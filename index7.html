@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>VUEjs EVENTOS </title>
+		<!-- cdn de bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+
+<div id="main">
+	
+	<div class="container">
+		<div class="row">
+
+		<div class="col-xs-12">
+			<h2>Eventos en VUEjs</h2>
+		</div>
+		<div class="col-xs-4">
+			<div class="input-group">
+				<input type="text" name="" class="form-control" v-model="name" v-on:keyup.enter="addName">
+				<span class="input-group-btn">
+					<input type="button" class="btn btn-default" value="add" v-on:click="addName">
+				</span>
+			</div>
+			<hr>
+			<ul class="list-group">
+				<li class="list-group-item" v-for="item in people">{{item}}</li>
+			</ul>
+
+		</div>
+
+
+
+		<!-- En este coloco el evento en el formulario y no en cada etiqueta
+		(.prevent esta para prevenir el comportamiento habitual del formulario que es enviar) -->
+		<div class="col-xs-4">
+		<form v-on:submit.prevent="addName">
+			<div class="input-group">
+				<input type="text" name="" class="form-control" v-model="name">
+				<span class="input-group-btn">
+					<input type="submit" class="btn btn-default" value="add" >
+				</span>
+			</div>
+			<hr>
+			<ul class="list-group">
+				<li class="list-group-item" v-for="item in people">{{item}}</li>
+			</ul>
+		</form>
+		</div>
+
+<!-- funcionan los dos igual pero de distinta manera (mejor la segunda) -->
+
+
+
+		<div class="col-xs-4">
+			<h4>Haz click para sumar</h4>
+			<button v-on:click="num += 1">
+				{{num}}
+				<i class="glyphicon glyphicon-thumbs-up"></i>
+			</button>
+		</div>
+
+		</div>
+	</div>
+
+
+</div>
+
+<!-- //directiva aquello que utilizamos para que las etiquetas hagan algo -->
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.1/vue.js"></script>
+<script type="text/javascript">
+	
+
+new Vue({
+	el:'#main',	//vinculamos al elemento
+	data: {
+		people:['Patri','Emma','Gordon','Petuso'],
+		name: '',
+		num : 0
+	},
+	methods:{
+		addName: function(){
+			this.people.push(this.name);
+			this.name = '';
+		}
+	}
+
+});
+
+
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>
